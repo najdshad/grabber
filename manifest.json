@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "X Video Downloader",
+  "version": "1.0.0",
+  "description": "Right-click a video or GIF on X.com to download it as MP4.",
+  "permissions": ["downloads"],
+  "host_permissions": [
+    "https://cdn.syndication.twimg.com/*",
+    "https://video.twimg.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*", "https://twitter.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
